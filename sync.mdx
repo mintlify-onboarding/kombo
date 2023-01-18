@@ -1,0 +1,22 @@
+---
+title: "Real-time sync"
+description: "How Kombo keeps integration data up-to-date without sacrificing API reliability and performance."
+---
+
+## The problem
+
+If you've ever built an integration with a more legacy or enterprise system, you'll know the struggles you have to go through to perform even the simplest of reads:
+
+Information about a single concept (e.g., an employee) is spread across five different endpoints, requests sometimes take minutes to finish, and unreliable servers force you to implement complex retry logic.
+
+**We were faced with a choice:** Either we expose these same problems to our customers, resulting in slow and unreliable endpoints, or we come up with a solution — we decided to go with the latter.
+
+## The solution
+
+We're now mirroring the data in the source systems into a database at regular intervals (and when you [manually trigger a sync](/reference/post%5Fforce-sync)). When you call our API, we will simply read from this database, resulting in endpoints that always respond reliably and quickly.
+
+Through our syncing approach, we can also provide [webhooks](/docs/webhooks) for systems that don't provide webhooks themselves.
+
+> ### 📘
+> 
+> Note that syncs adhere to [your scope config](/docs/scopes), so if there are sensitive data points you're not using, then those will **not** end up in our database.

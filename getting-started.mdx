@@ -1,0 +1,109 @@
+---
+title: "Getting Started"
+description: "Let's get you up and running with our API!"
+---
+
+<Warning>
+  This guide assumes you already have a Kombo account. If that's not the case,
+  visit [our website](https://www.kombo.dev/) to learn more and get access.
+</Warning>
+
+## Adding your first integration
+
+1. Log in to the [Kombo Dashboard](https://app.kombo.dev)
+2. Go to the "Integrations" page
+3. Click "New integration":
+   ![1448](/images/503d25a-Screen_Shot_2022-10-07_at_15.59.06.png "Screen Shot 2022-10-07 at 15.59.06.png")![1448](/images/503d25a-Screen_Shot_2022-10-07_at_15.59.06.png "Click to close...")
+4. Select "Create the integration yourself":
+   ![758](/images/16769a4-Screen_Shot_2022-10-07_at_16.00.06.png "Screen Shot 2022-10-07 at 16.00.06.png")![758](/images/16769a4-Screen_Shot_2022-10-07_at_16.00.06.png "Click to close...")
+5. Work your way through the flow and enter the necessary credentials
+
+### Your first integration ID
+
+After going through the connection flow, your newly created integration will
+appear on your dashboard. It will probably look something like this:
+
+![1422](/images/d5998af-Screen_Shot_2022-10-07_at_16.14.12.png "Screen Shot 2022-10-07 at 16.14.12.png")![1422](/images/d5998af-Screen_Shot_2022-10-07_at_16.14.12.png "Click to close...")
+
+Note the bold string at the top starting with the name of the tool you've
+connected (`factorial` in this example): that's the **integration ID**. It
+uniquely identifies this integration, and you'll include it in all related API
+requests.
+
+## Using the unified API
+
+Now that you've created an integration, it's time to get to the most crucial
+part: Actually calling the Kombo API to retrieve data from the integration.
+
+Thanks to our interactive API documentation, you'll be able to do this right
+from your browser. To get started, head over to our [API reference](/reference)
+and choose an endpoint from the category of your integration (e.g., HRIS or
+ATS).
+
+### Calling the endpoint
+
+Let's say we want to retrieve all the employees in Factorial (the HRIS system I
+connected for this example). To do this, I'll have to call
+[the /hris/employees endpoint](/reference/get%5Fhris-employees).
+
+![1346](/images/4fb50a4-Screen_Shot_2022-10-07_at_16.51.23.png "Screen Shot 2022-10-07 at 16.51.23.png")![1346](/images/4fb50a4-Screen_Shot_2022-10-07_at_16.51.23.png "Click to close...")
+
+_The endpoint I'll be using in this example._
+
+### Configuring the headers
+
+Before we can send off the request, there are two things we have to configure:
+
+#### API key
+
+First, we have to set our **Kombo API key**, which ensures that _only you_ can
+request data from your customers' integrations. Enter it in the "Authentication"
+field in the top right:
+
+![948](/images/23f73e6-Screen_Shot_2022-10-07_at_17.03.27.png "Screen Shot 2022-10-07 at 17.03.27.png")![948](/images/23f73e6-Screen_Shot_2022-10-07_at_17.03.27.png "Click to close...")
+
+#### Integration ID
+
+You've likely got a single integration set up at this point, but you'll probably
+have many in the future. That's why you have to specify which integration you're
+requesting data for with each request. This can be done through the
+`X-Integration-Id` header, which you can find at the bottom of the page:
+
+![1282](/images/4701a78-Screen_Shot_2022-10-07_at_17.11.19.png "Screen Shot 2022-10-07 at 17.11.19.png")![1282](/images/4701a78-Screen_Shot_2022-10-07_at_17.11.19.png "Click to close...")
+
+As you can see, I've already entered the integration of the Factorial
+integration I've created above. Now everything is ready to send the request:
+Scroll back up and **_Try it!_**
+
+![920](/images/cd2ab94-Screen_Shot_2022-10-07_at_17.18.43.png "Screen Shot 2022-10-07 at 17.18.43.png")![920](/images/cd2ab94-Screen_Shot_2022-10-07_at_17.18.43.png "Click to close...")
+
+You should now see a list of employees (or whatever the endpoint you chose
+returns), congratulations!
+
+![910](/images/08827f2-Screen_Shot_2022-10-07_at_17.23.19.png "Screen Shot 2022-10-07 at 17.23.19.png")![910](/images/08827f2-Screen_Shot_2022-10-07_at_17.23.19.png "Click to close...")
+
+### Programmatically calling the API
+
+Calling the Kombo API through the documentation site works great for
+experimenting, but you'll likely want to integrate Kombo into your own
+application. In the future, we'll be providing official SDKs for this purpose,
+but for now, you can use our docs to generate code snippets.
+
+To do this, select your programming language in the top right. You'll then be
+provided with the code you need to make the same API call you made
+interactively:
+
+![926](/images/5ea5380-Screen_Shot_2022-10-07_at_17.36.27.png "Screen Shot 2022-10-07 at 17.36.27.png")![926](/images/5ea5380-Screen_Shot_2022-10-07_at_17.36.27.png "Click to close...")
+
+_A code snippet for Node.js (with the Axios library)._
+
+## Wrapping up
+
+In this guide, we've:
+
+- created a new integration through the Kombo dashboard
+- learned about integration IDs and Kombo's authentication
+- made a request to the Kombo API through the interactive docs
+- generated code to interact with the Kombo API programmatically
+
+You're now ready to continue on your own. Go build great things! ✨

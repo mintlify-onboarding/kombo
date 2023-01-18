@@ -1,0 +1,61 @@
+---
+title: "Webhooks"
+description: "Kombo sends you webhooks so that you don't have to poll our API for changes."
+---
+
+## Webhook Use Case
+
+Use our webhooks to be notified about finished syncs. This allows you to fetch any changes that occurred during a sync. This allows you to keep your database up to date without scheduling/polling.  
+Easily test webhooks with [Webhook.site](https://webhook.site/).
+
+## Enable Webhooks
+
+You can configure your Kombo webhooks in the dashboard directly in the[ webhooks tab](https://app.kombo.dev/env/webhooks). After creating the first webhook, a random webhook secret will be generated and shown. Learn in _validate the data_ how to use it.
+
+![1412](/images/ac5c217-c093f3c53f5352fad1549cbfd4f9b5a5a1007dc4629e028f601bbf5d8c799e9f.png "c093f3c53f5352fad1549cbfd4f9b5a5a1007dc4629e028f601bbf5d8c799e9f.png")![1412](/images/ac5c217-c093f3c53f5352fad1549cbfd4f9b5a5a1007dc4629e028f601bbf5d8c799e9f.png "Click to close...") 
+
+## Data Schema
+
+Our webhooks follow this schema: 
+
+JSON
+
+`{
+  "id": "5gjAtURLPbnTiwgkaBfiA3WJ",
+  "type": "sync-finished",
+  "data": {
+    "sync_id": "EY2KfFEZ5Vc2FVfVUQFpRduM",
+    "sync_state": "SUCCEEDED",
+    "sync_started_at": "2022-11-02T10:50:10.242Z",
+    "sync_ended_at": "2022-11-02T10:50:14.751Z",
+    "sync_duration_seconds": 14.509,
+    "integration_id": "personio:hris-dev",
+    "integration_tool": "personio",
+    "integration_category": "HRIS"
+  }
+}
+`
+
+## Validate the data
+
+Anyone could post data to your webhook URL. That's why we're signing each request with a secret specific to your Kombo account. The secret is called `Kombo Webhook Secret` and will be sent to you when we activate Webhooks for you.
+
+Each valid webhook POST from us will include the `X-Kombo-Signature` header. Validate it by using HMAC-SHA256 to sign the request body with the `Kombo Webhook Secret` and then digest it with `base64url`.
+
+In Node.js, it could, for example, look like this:
+
+TypeScript
+
+`import { createHmac } from 'node:crypto'
+
+const signatureHeader = req.headers['x-kombo-signature']
+
+// Get the raw UTF-8-encoded string body because this was used for signing
+const body = request.body
+
+const signature = createHmac('sha256', signatureSecret)
+  .update(body, 'utf8')
+  .digest('base64url')
+
+const isValidRequest = signature === signatureHeader
+`

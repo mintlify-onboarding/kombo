@@ -1,0 +1,63 @@
+{
+  "name": "Kombo",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#55B5A6",
+    "light": "#98E4D9",
+    "dark": "#36766F",
+    "anchors": { "from": "#55B5A6", "to": "#36766F" }
+  },
+  "topbarCtaButton": {
+    "name": "Log in",
+    "url": "https://app.kombo.dev/account/login"
+  },
+  "topbarLinks": [
+    {
+      "name": "Get started",
+      "url": "https://www.kombo.dev/"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "API Reference",
+      "icon": "square-terminal",
+      "url": "reference"
+    },
+    {
+      "name": "Contact us",
+      "icon": "envelope",
+      "url": "mailto:contact@kombo.dev"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "General",
+      "pages": ["getting-started"]
+    },
+    {
+      "group": "Features",
+      "pages": [
+        {
+          "group": "Kombo Connect",
+          "pages": ["connect", "manual-setup", "magic-links", "embedded-flow"]
+        },
+        "scopes",
+        "sync",
+        "webhooks",
+        "request-logs"
+      ]
+    },
+    {
+      "group": "More",
+      "pages": []
+    }
+  ],
+  "footerSocials": {
+    "website": "https://www.kombo.dev/",
+    "linkedin": "https://www.linkedin.com/company/kombo-api/about/"
+  }
+}

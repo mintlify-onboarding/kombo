@@ -1,0 +1,191 @@
+---
+title: "Embedded flow"
+description: "Embed Kombo Connect into your app for the most seamless experience."
+---
+
+If you've gone through the general [Kombo Connect](/docs/connect) documentation, you'll know there are [different ways of using the flow](/docs/connect#getting-started). Our embedded flow provides the most seamless experience to your customers but also involves some engineering on your side. In this guide, we'll go over what that means exactly.
+
+## Implementing the flow
+
+The embedded flow requires you to:
+
+* Add an **endpoint** to your back-end for initiating the flow
+* Add a **button** to your front-end to show the flow to your user
+* Add another API **endpoint** to your back-end to activate the integration
+
+Let's go over each of these steps in detail.
+
+### Adding the endpoints
+
+Both endpoints are mostly just wrappers around endpoints of the Kombo API and mainly exist for security reasons (so that malicious actors can't set up arbitrary integrations in your Kombo environment).
+
+The first one initializes the flow by calling the Kombo API and returns a link that we then use in the front-end:
+
+Node.js (Express + Axios)
+
+`` app.post('/integrations/kombo/init', (req, res) => {
+  // TODO: Get user details from your database
+  const user = await getUser()
+  
+  const response = await axios.post(
+    'https://api.kombo.dev/v1/connect/create-link',
+    {
+      // These details help identify which company an integration belongs to
+      end_user_email: user.email,
+      end_user_organization_name: user.company.name,
+      end_user_origin_id: user.company.id,
+ 
+      integration_category: 'HRIS',
+    }, {
+      headers: {
+        authorization: `Bearer ${KOMBO_API_KEY}`,
+      },
+    },
+  )
+
+  res.send({ link: response.data.data.link })
+})
+ ``
+
+The second one takes in an "activation token" from the front-end, calls the Kombo API again to activate the integration, and then stores the integration's ID in the database, so it can later be used to call the unified API:
+
+Node.js (Express + Axios)
+
+`` app.post('/integrations/kombo/activate', (req, res) => {
+  const response = await axios.post(
+    'https://api.kombo.dev/v1/connect/activate-integration',
+    {
+      // Make sure you're using the `express.json()` middleware
+      token: req.body.token,
+    }, {
+      headers: {
+        authorization: `Bearer ${KOMBO_API_KEY}`,
+      },
+    },
+  )
+  
+  const integrationId = response.data.data.id
+
+  // TODO: Store the integration ID in your database
+  
+  res.sendStatus(200)
+})
+ ``
+
+### Adding the button
+
+For now, we're all set on the back-end side, so let's switch to the front-end:
+
+Here we'll have to add a button that lets your users start the flow. Most of our customers already have an "Integrations" page within their product's settings. If you do, too, then that's the perfect place to add the button.
+
+How exactly you're going to do this will depend on your tech stack, but it's probably going to look something like this:
+
+ReactVue.jsHTML
+
+`<button onClick={() => connectHris()}>
+  Connect HRIS
+</button>
+`
+
+`<button @click="connectHris()">
+  Connect HRIS
+</button>
+`
+
+`<button onclick="connectHris()">
+  Connect HRIS
+</button>
+`
+
+> ### 📘
+> 
+> Right now, we require you to specify the integration category when initializing the flow, so you'll likely want to label your button accordingly (e.g., "Connect HRIS" or "Connect ATS").
+
+When a user clicks on the button, two things need to happen:
+
+* An integration link has to be retrieved through your endpoint
+* The embedded flow has to be started
+
+#### Getting a link
+
+Here's what the first part might look like:
+
+JavaScript
+
+`async function getKomboConnectLink() {
+  // Note: The URL below points to *your* API and could be different
+  const response = await fetch("/integrations/kombo/init")
+  const data = await response.json()
+
+  return data.link
+}
+`
+
+#### Opening the flow
+
+Now it's time to actually show the flow to the user. This can be through [the @kombo-api/connect JavaScript library](https://www.npmjs.com/package/@kombo-api/connect). It's tiny (about 50 lines of JavaScript as of now) and basically just initializes an `<iframe>` to display the flow.
+
+Let's, first of all, add it as a dependency to our front-end:
+
+npmyarnpnpm
+
+`npm install @kombo-api/connect
+`
+
+`yarn add @kombo-api/connect
+`
+
+`pnpm add @kombo-api/connect
+`
+
+Then, import it like so:
+
+JavaScript
+
+`import { showKomboConnect } from '@kombo-api/connect'
+`
+
+##### Can't use npm packages or imports?
+
+You can also load the library from the unpkg CDN:
+
+HTML
+
+`<script src="https://unpkg.com/@kombo-api/[[email protected]](/cdn-cgi/l/email-protection)/dist/index.js"></script>
+`
+
+This makes the library available globally as `KomboConnect`.
+
+#### Activating the integration
+
+In order to activate the integration after going through the flow, we need to call our other endpoint:
+
+JavaScript
+
+`async function activateKomboIntegration(token) {
+  // Note: The URL below points to *your* API and could be different
+  const response = await fetch("/integrations/kombo/init", {
+    method: 'POST',
+    body: JSON.stringif({ token }),
+  })
+}
+`
+
+#### Putting all together
+
+Now it's time to put it all together:
+
+JavaScript
+
+`// You can call this whatever you want (just attach this to your button)
+async function connectHris() {
+  // We wrote this function earlier (make sure to import/include it)
+  const link = await getKomboConnectLink()
+  
+  const activationToken = await showKomboConnect(link)
+  
+  await activateKomboIntegration(activationToken)
+}
+`
+
+And that's it! You've successfully embedded Kombo Connect!

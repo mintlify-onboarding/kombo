@@ -1,0 +1,36 @@
+---
+title: "Scopes"
+description: "Scopes allow you to customize what data is being synced by Kombo."
+---
+
+By default, Kombo syncs all available data from connected systems. This can be pretty convenient for exploring what's available during development, but as soon as you take Kombo into production, you'll likely want to restrict what data is extracted and stored for privacy and security reasons.
+
+For this purpose, Kombo provides what we call "Scopes." These allow you to configure precisely which models and data points are being extracted and stored. Let's say, for example, you're integrating with HRIS solutions but are only interested in employee names and email addresses — scopes allow you to only extract these data points.
+
+## Configuring scopes
+
+To get started configuring scopes, log into the [Kombo Dashboard](https://app.kombo.dev) and open the "Scope Config" page. It should look something like this:
+
+![1464](/images/4086397-Screen_Shot_2022-10-09_at_12.04.51.png "Screen Shot 2022-10-09 at 12.04.51.png")![1464](/images/4086397-Screen_Shot_2022-10-09_at_12.04.51.png "Click to close...") 
+
+### Configuring models
+
+All of Kombo's supported models are listed here, and you can turn off a model entirely by clicking on the toggle to the left of the model name. This can be helpful if, for example, if you're integrating with HRIS but don't care about absences at all.
+
+### Configuring fields
+
+If, however, you only want to turn off individual model fields, click on the "show more" button of a model. You'll now see all the fields it supports:
+
+![1426](/images/e918b5a-Screen_Shot_2022-10-09_at_12.16.18.png "Screen Shot 2022-10-09 at 12.16.18.png")![1426](/images/e918b5a-Screen_Shot_2022-10-09_at_12.16.18.png "Click to close...") 
+
+If you, for example, don't want to sync employees' date of birth or ethnicity, you can turn them off by clicking on the respective toggles.
+
+## Building trust with your customers
+
+Some of the systems we help you integrate (like HRIS) contain pretty sensitive data (like personal addresses or dates of birth of employees). That's why communicating which data points you access and which you don't is critical to building trust and eradicating concerns during the sales process.
+
+To help you with this, we're exposing your scope config to the end user as part of our connection flow:
+
+![1002](/images/65d39f4-Screen_Shot_2022-10-09_at_14.50.50.png "Screen Shot 2022-10-09 at 14.50.50.png")![1002](/images/65d39f4-Screen_Shot_2022-10-09_at_14.50.50.png "Click to close...") 
+
+This way, your customers can see exactly which data points you're accessing.
