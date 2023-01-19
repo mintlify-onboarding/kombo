@@ -113,10 +113,10 @@
         {
           "group": "Custom Endpoints",
           "pages": [
-            "reference/custom-endpoints/",
-            "reference/custom-endpoints/",
-            "reference/custom-endpoints/",
-            "reference/custom-endpoints/"
+            "reference/custom-endpoints/prepare-datev-payroll",
+            "reference/custom-endpoints/data-pushes",
+            "reference/custom-endpoints/general",
+            "reference/custom-endpoints/payroll"
           ]
         }
       ]
