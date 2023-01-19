@@ -87,15 +87,37 @@
         },
         {
           "group": "Unified ATS API",
-          "pages": ["getting-started/unified-ats/"]
+          "pages": [
+            "reference/unified-ats/get-applications",
+            "reference/unified-ats/update-application",
+            "reference/unified-ats/get-candidates",
+            "reference/unified-ats/create-candidate",
+            "reference/unified-ats/update-candidate",
+            "reference/unified-ats/add-result-link",
+            "reference/unified-ats/add-tag",
+            "reference/unified-ats/remove-tag",
+            "reference/unified-ats/get-tags",
+            "reference/unified-ats/get-application-stages",
+            "reference/unified-ats/get-jobs",
+            "reference/unified-ats/get-interviews",
+            "reference/unified-ats/get-users"
+          ]
         },
         {
           "group": "Kombo Connect",
-          "pages": ["getting-started/combo-connect/"]
+          "pages": [
+            "reference/combo-connect/create-link",
+            "reference/combo-connect/activate-integration"
+          ]
         },
         {
           "group": "Custom Endpoints",
-          "pages": ["getting-started/custom-endpoints/"]
+          "pages": [
+            "reference/custom-endpoints/",
+            "reference/custom-endpoints/",
+            "reference/custom-endpoints/",
+            "reference/custom-endpoints/"
+          ]
         }
       ]
     }
