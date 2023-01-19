@@ -4,6 +4,9 @@
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
   },
+  "api": {
+    "baseUrl": "https://api.kombo.dev"
+  },
   "favicon": "/favicon.svg",
   "colors": {
     "primary": "#55B5A6",
@@ -52,8 +55,19 @@
       ]
     },
     {
-      "group": "More",
-      "pages": []
+      "group": "API Reference",
+      "pages": [
+        {
+          "group": "General",
+          "pages": [
+            "reference/general/check-api-key",
+            "reference/general/trigger-sync",
+            "reference/general/send-pass-through-request",
+            "reference/general/delete-integration",
+            "reference/general/get-integration"
+          ]
+        }
+      ]
     }
   ],
   "footerSocials": {
