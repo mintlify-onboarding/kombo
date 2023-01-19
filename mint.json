@@ -66,6 +66,36 @@
             "reference/general/delete-integration",
             "reference/general/get-integration"
           ]
+        },
+        {
+          "group": "Unified HRIS API",
+          "pages": [
+            "reference/unified-hris/get-employees",
+            "reference/unified-hris/create-employee",
+            "reference/unified-hris/update-employee",
+            "reference/unified-hris/set-compensations",
+            "reference/unified-hris/get-teams",
+            "reference/unified-hris/get-groups",
+            "reference/unified-hris/get-employments",
+            "reference/unified-hris/get-locations",
+            "reference/unified-hris/get-absence-types",
+            "reference/unified-hris/get-time-off-balances",
+            "reference/unified-hris/get-absences",
+            "reference/unified-hris/create-absence",
+            "reference/unified-hris/delete-absence"
+          ]
+        },
+        {
+          "group": "Unified ATS API",
+          "pages": ["getting-started/unified-ats/"]
+        },
+        {
+          "group": "Kombo Connect",
+          "pages": ["getting-started/combo-connect/"]
+        },
+        {
+          "group": "Custom Endpoints",
+          "pages": ["getting-started/custom-endpoints/"]
         }
       ]
     }
