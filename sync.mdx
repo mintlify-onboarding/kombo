@@ -22,16 +22,15 @@ solution — we decided to go with the latter.
 ## The solution
 
 We're now mirroring the data in the source systems into a database at regular
-intervals (and when you
-[manually trigger a sync](/reference/post%5Fforce-sync)). When you call our API,
-we will simply read from this database, resulting in endpoints that always
-respond reliably and quickly.
+intervals (and when you [manually trigger a sync](/reference/trigger-sync)).
+When you call our API, we will simply read from this database, resulting in
+endpoints that always respond reliably and quickly.
 
-Through our syncing approach, we can also provide [webhooks](/docs/webhooks) for
+Through our syncing approach, we can also provide [webhooks](/webhooks) for
 systems that don't provide webhooks themselves.
 
 <Note>
-  Note that syncs adhere to [your scope config](/docs/scopes), so if there are
+  Note that syncs adhere to [your scope config](/scopes), so if there are
   sensitive data points you're not using, then those will **not** end up in our
   database.
 </Note>
