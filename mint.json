@@ -5,7 +5,7 @@
     "dark": "/logo/dark.svg"
   },
   "api": {
-    "baseUrl": "https://api.kombo.dev"
+    "baseUrl": "https://api.kombo.dev/"
   },
   "favicon": "/favicon.svg",
   "colors": {
