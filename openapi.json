@@ -288,8 +288,7 @@
                     "status": { "type": "string", "enum": ["success"] },
                     "data": {
                       "type": "object",
-                      "properties": {},
-                      "required": []
+                      "properties": {}
                     }
                   },
                   "required": ["status", "data"]
@@ -747,8 +746,7 @@
                                         "type": "string",
                                         "default": null
                                       }
-                                    },
-                                    "required": []
+                                    }
                                   },
                                   "date_of_birth": {
                                     "nullable": true,
@@ -1288,8 +1286,7 @@
                                             "type": "string",
                                             "default": null
                                           }
-                                        },
-                                        "required": []
+                                        }
                                       },
                                       "type": {
                                         "nullable": true,
@@ -1941,8 +1938,7 @@
                               "type": "string",
                               "default": null
                             }
-                          },
-                          "required": []
+                          }
                         },
                         "date_of_birth": {
                           "nullable": true,
@@ -2223,7 +2219,6 @@
                             "description": "Some tools allow free text but most require `ISO 3166-1 alpha-2` codes. For systems that have other formats, Kombo transforms the ISO Codes to the appropriate value."
                           }
                         },
-                        "required": [],
                         "description": "Nested object of the home address."
                       },
                       "date_of_birth": {
@@ -2258,7 +2253,6 @@
                         "description": "Tax ID of the employee. Most contries have different formats of that. In Germany, this is the `Steuer ID` and in the US it's the `TIN`."
                       }
                     },
-                    "required": [],
                     "example": {
                       "first_name": "John",
                       "last_name": "Doe",
@@ -2512,8 +2506,7 @@
                               "type": "string",
                               "default": null
                             }
-                          },
-                          "required": []
+                          }
                         },
                         "date_of_birth": {
                           "nullable": true,
@@ -2813,7 +2806,6 @@
                             "description": "Some tools allow free text but most require `ISO 3166-1 alpha-2` codes. For systems that have other formats, Kombo transforms the ISO Codes to the appropriate value."
                           }
                         },
-                        "required": [],
                         "description": "Nested object of the home address."
                       },
                       "date_of_birth": {
@@ -2848,7 +2840,6 @@
                         "description": "Tax ID of the employee. Most contries have different formats of that. In Germany, this is the `Steuer ID` and in the US it's the `TIN`."
                       }
                     },
-                    "required": [],
                     "example": {
                       "first_name": "John",
                       "last_name": "Doe",
@@ -2915,8 +2906,7 @@
                     "status": { "type": "string", "enum": ["success"] },
                     "data": {
                       "type": "object",
-                      "properties": {},
-                      "required": []
+                      "properties": {}
                     }
                   },
                   "required": ["status", "data"]
@@ -3924,8 +3914,7 @@
                                     "type": "string",
                                     "default": null
                                   }
-                                },
-                                "required": []
+                                }
                               },
                               "type": { "nullable": true, "type": "string" },
                               "changed_at": {
@@ -6272,8 +6261,7 @@
                     "status": { "type": "string", "enum": ["success"] },
                     "data": {
                       "type": "object",
-                      "properties": {},
-                      "required": []
+                      "properties": {}
                     }
                   },
                   "required": ["status", "data"]
@@ -6484,8 +6472,7 @@
                                         "type": "string",
                                         "default": null
                                       }
-                                    },
-                                    "required": []
+                                    }
                                   },
                                   "remote_created_at": {
                                     "nullable": true,
@@ -6996,248 +6983,321 @@
                   "properties": {
                     "status": { "type": "string", "enum": ["success"] },
                     "data": {
-                      "type": "object",
-                      "properties": {
-                        "id": { "type": "string" },
-                        "remote_id": { "type": "string" },
-                        "first_name": { "nullable": true, "type": "string" },
-                        "last_name": { "nullable": true, "type": "string" },
-                        "company": { "nullable": true, "type": "string" },
-                        "title": { "nullable": true, "type": "string" },
-                        "confidential": { "nullable": true, "type": "boolean" },
-                        "source": { "nullable": true, "type": "string" },
-                        "phone_numbers": {
-                          "nullable": true,
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "type": { "nullable": true, "type": "string" },
-                              "phone_number": { "type": "string" }
-                            },
-                            "required": ["type", "phone_number"]
-                          },
-                          "default": []
-                        },
-                        "email_addresses": {
-                          "nullable": true,
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "type": { "nullable": true, "type": "string" },
-                              "email_address": { "type": "string" }
-                            },
-                            "required": ["type", "email_address"]
-                          },
-                          "default": []
-                        },
-                        "social_media": {
-                          "nullable": true,
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "type": { "nullable": true, "type": "string" },
-                              "link": { "nullable": true, "type": "string" },
-                              "username": { "nullable": true, "type": "string" }
-                            },
-                            "required": ["type", "link", "username"]
-                          },
-                          "default": []
-                        },
-                        "location": {
-                          "nullable": true,
+                      "allOf": [
+                        {
                           "type": "object",
                           "properties": {
-                            "street_1": {
+                            "id": { "type": "string" },
+                            "remote_id": { "type": "string" },
+                            "first_name": {
                               "nullable": true,
-                              "type": "string",
-                              "default": null
+                              "type": "string"
                             },
-                            "street_2": {
+                            "last_name": { "nullable": true, "type": "string" },
+                            "company": { "nullable": true, "type": "string" },
+                            "title": { "nullable": true, "type": "string" },
+                            "confidential": {
                               "nullable": true,
-                              "type": "string",
-                              "default": null
+                              "type": "boolean"
                             },
-                            "zip_code": {
+                            "source": { "nullable": true, "type": "string" },
+                            "phone_numbers": {
                               "nullable": true,
-                              "type": "string",
-                              "default": null
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "nullable": true,
+                                    "type": "string"
+                                  },
+                                  "phone_number": { "type": "string" }
+                                },
+                                "required": ["type", "phone_number"]
+                              },
+                              "default": []
                             },
-                            "city": {
+                            "email_addresses": {
                               "nullable": true,
-                              "type": "string",
-                              "default": null
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "nullable": true,
+                                    "type": "string"
+                                  },
+                                  "email_address": { "type": "string" }
+                                },
+                                "required": ["type", "email_address"]
+                              },
+                              "default": []
                             },
-                            "state": {
+                            "social_media": {
                               "nullable": true,
-                              "type": "string",
-                              "default": null
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "type": {
+                                    "nullable": true,
+                                    "type": "string"
+                                  },
+                                  "link": {
+                                    "nullable": true,
+                                    "type": "string"
+                                  },
+                                  "username": {
+                                    "nullable": true,
+                                    "type": "string"
+                                  }
+                                },
+                                "required": ["type", "link", "username"]
+                              },
+                              "default": []
                             },
-                            "country": {
+                            "location": {
                               "nullable": true,
-                              "type": "string",
-                              "default": null
+                              "type": "object",
+                              "properties": {
+                                "street_1": {
+                                  "nullable": true,
+                                  "type": "string",
+                                  "default": null
+                                },
+                                "street_2": {
+                                  "nullable": true,
+                                  "type": "string",
+                                  "default": null
+                                },
+                                "zip_code": {
+                                  "nullable": true,
+                                  "type": "string",
+                                  "default": null
+                                },
+                                "city": {
+                                  "nullable": true,
+                                  "type": "string",
+                                  "default": null
+                                },
+                                "state": {
+                                  "nullable": true,
+                                  "type": "string",
+                                  "default": null
+                                },
+                                "country": {
+                                  "nullable": true,
+                                  "type": "string",
+                                  "default": null
+                                },
+                                "raw": {
+                                  "nullable": true,
+                                  "type": "string",
+                                  "default": null
+                                }
+                              }
                             },
-                            "raw": {
+                            "remote_created_at": {
                               "nullable": true,
+                              "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
                               "type": "string",
-                              "default": null
+                              "format": "date-time",
+                              "externalDocs": {
+                                "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
+                              }
+                            },
+                            "remote_updated_at": {
+                              "nullable": true,
+                              "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
+                              "type": "string",
+                              "format": "date-time",
+                              "externalDocs": {
+                                "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
+                              }
+                            },
+                            "remote_data": {
+                              "nullable": true,
+                              "type": "object",
+                              "additionalProperties": {
+                                "format": "any",
+                                "nullable": true
+                              }
+                            },
+                            "changed_at": {
+                              "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
+                              "type": "string",
+                              "format": "date-time",
+                              "externalDocs": {
+                                "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
+                              }
+                            },
+                            "remote_deleted_at": {
+                              "nullable": true,
+                              "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
+                              "type": "string",
+                              "format": "date-time",
+                              "externalDocs": {
+                                "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
+                              }
                             }
                           },
-                          "required": []
-                        },
-                        "remote_created_at": {
-                          "nullable": true,
-                          "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
-                          "type": "string",
-                          "format": "date-time",
-                          "externalDocs": {
-                            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
+                          "required": [
+                            "id",
+                            "remote_id",
+                            "first_name",
+                            "last_name",
+                            "company",
+                            "title",
+                            "confidential",
+                            "source",
+                            "location",
+                            "remote_created_at",
+                            "remote_updated_at",
+                            "remote_data",
+                            "changed_at",
+                            "remote_deleted_at"
+                          ],
+                          "example": {
+                            "id": "26vafvWSRmbhNcxJYqjCzuJg",
+                            "remote_id": "32",
+                            "first_name": "John",
+                            "last_name": "Doe",
+                            "company": "Acme, Inc.",
+                            "title": "Head of Marketing",
+                            "confidential": false,
+                            "source": "Employee Referral",
+                            "phone_numbers": [
+                              {
+                                "phone_number": "+1-541-754-3010",
+                                "type": "HOME"
+                              }
+                            ],
+                            "email_addresses": [
+                              {
+                                "email_address": "john.doe@example.com",
+                                "type": "PRIVATE"
+                              }
+                            ],
+                            "social_media": [
+                              {
+                                "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+                                "type": "YOUTUBE",
+                                "username": null
+                              }
+                            ],
+                            "location": {
+                              "city": "Berlin",
+                              "country": "de",
+                              "raw": "Berlin, Germany",
+                              "state": "Berlin",
+                              "street_1": "Lohmühlenstraße 65",
+                              "street_2": null,
+                              "zip_code": "12435"
+                            },
+                            "remote_created_at": "2022-04-02T00:00:00.000Z",
+                            "remote_updated_at": "2022-04-04T00:00:00.000Z",
+                            "remote_data": null,
+                            "changed_at": "2022-04-04T00:00:00.000Z",
+                            "remote_deleted_at": null
                           }
                         },
-                        "remote_updated_at": {
-                          "nullable": true,
-                          "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
-                          "type": "string",
-                          "format": "date-time",
-                          "externalDocs": {
-                            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
-                          }
-                        },
-                        "remote_data": {
-                          "nullable": true,
+                        {
                           "type": "object",
-                          "additionalProperties": {
-                            "format": "any",
-                            "nullable": true
-                          }
-                        },
-                        "changed_at": {
-                          "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
-                          "type": "string",
-                          "format": "date-time",
-                          "externalDocs": {
-                            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
-                          }
-                        },
-                        "remote_deleted_at": {
-                          "nullable": true,
-                          "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
-                          "type": "string",
-                          "format": "date-time",
-                          "externalDocs": {
-                            "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
-                          }
+                          "properties": {
+                            "applications": {
+                              "type": "array",
+                              "items": {
+                                "allOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": { "type": "string" },
+                                      "remote_id": { "type": "string" }
+                                    },
+                                    "required": ["id", "remote_id"],
+                                    "example": {
+                                      "id": "26vafvWSRmbhNcxJYqjCzuJg",
+                                      "remote_id": "32"
+                                    }
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "current_stage": {
+                                        "nullable": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "id": { "type": "string" },
+                                          "name": {
+                                            "nullable": true,
+                                            "type": "string"
+                                          },
+                                          "remote_id": {
+                                            "nullable": true,
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": ["id", "name", "remote_id"],
+                                        "example": {
+                                          "id": "26vafvWSRmbhNcxJYqjCzuJg",
+                                          "name": "Initial Screening",
+                                          "remote_id": "32"
+                                        }
+                                      },
+                                      "job": {
+                                        "nullable": true,
+                                        "type": "object",
+                                        "properties": {
+                                          "id": { "type": "string" },
+                                          "name": {
+                                            "nullable": true,
+                                            "type": "string"
+                                          },
+                                          "remote_id": { "type": "string" }
+                                        },
+                                        "required": ["id", "name", "remote_id"],
+                                        "example": {
+                                          "id": "26vafvWSRmbhNcxJYqjCzuJg",
+                                          "name": "Backend Engineer",
+                                          "remote_id": "32"
+                                        }
+                                      }
+                                    },
+                                    "required": ["current_stage", "job"]
+                                  }
+                                ]
+                              }
+                            },
+                            "tags": {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id": { "type": "string" },
+                                  "name": {
+                                    "nullable": true,
+                                    "type": "string"
+                                  },
+                                  "remote_id": {
+                                    "nullable": true,
+                                    "type": "string"
+                                  }
+                                },
+                                "required": ["id", "name", "remote_id"],
+                                "example": {
+                                  "id": "26vafvWSRmbhNcxJYqjCzuJg",
+                                  "name": "High Potential",
+                                  "remote_id": "32"
+                                }
+                              }
+                            }
+                          },
+                          "required": ["applications", "tags"]
                         }
-                      },
-                      "required": [
-                        "id",
-                        "remote_id",
-                        "first_name",
-                        "last_name",
-                        "company",
-                        "title",
-                        "confidential",
-                        "source",
-                        "location",
-                        "remote_created_at",
-                        "remote_updated_at",
-                        "remote_data",
-                        "changed_at",
-                        "remote_deleted_at"
-                      ],
-                      "example": {
-                        "id": "26vafvWSRmbhNcxJYqjCzuJg",
-                        "remote_id": "32",
-                        "first_name": "John",
-                        "last_name": "Doe",
-                        "company": "Acme, Inc.",
-                        "title": "Head of Marketing",
-                        "confidential": false,
-                        "source": "Employee Referral",
-                        "phone_numbers": [
-                          { "phone_number": "+1-541-754-3010", "type": "HOME" }
-                        ],
-                        "email_addresses": [
-                          {
-                            "email_address": "john.doe@example.com",
-                            "type": "PRIVATE"
-                          }
-                        ],
-                        "social_media": [
-                          {
-                            "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                            "type": "YOUTUBE",
-                            "username": null
-                          }
-                        ],
-                        "location": {
-                          "city": "Berlin",
-                          "country": "de",
-                          "raw": "Berlin, Germany",
-                          "state": "Berlin",
-                          "street_1": "Lohmühlenstraße 65",
-                          "street_2": null,
-                          "zip_code": "12435"
-                        },
-                        "remote_created_at": "2022-04-02T00:00:00.000Z",
-                        "remote_updated_at": "2022-04-04T00:00:00.000Z",
-                        "remote_data": null,
-                        "changed_at": "2022-04-04T00:00:00.000Z",
-                        "remote_deleted_at": null
-                      }
+                      ]
                     }
                   },
                   "required": ["status", "data"]
-                },
-                "examples": {
-                  "example1": {
-                    "value": {
-                      "status": "success",
-                      "data": {
-                        "id": "26vafvWSRmbhNcxJYqjCzuJg",
-                        "remote_id": "32",
-                        "first_name": "John",
-                        "last_name": "Doe",
-                        "company": "Acme, Inc.",
-                        "title": "Head of Marketing",
-                        "confidential": false,
-                        "source": "Employee Referral",
-                        "phone_numbers": [
-                          { "phone_number": "+1-541-754-3010", "type": "HOME" }
-                        ],
-                        "email_addresses": [
-                          {
-                            "email_address": "john.doe@example.com",
-                            "type": "PRIVATE"
-                          }
-                        ],
-                        "social_media": [
-                          {
-                            "link": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-                            "type": "YOUTUBE",
-                            "username": null
-                          }
-                        ],
-                        "location": {
-                          "city": "Berlin",
-                          "country": "de",
-                          "raw": "Berlin, Germany",
-                          "state": "Berlin",
-                          "street_1": "Lohmühlenstraße 65",
-                          "street_2": null,
-                          "zip_code": "12435"
-                        },
-                        "remote_created_at": "2022-04-02T00:00:00.000Z",
-                        "remote_updated_at": "2022-04-04T00:00:00.000Z",
-                        "remote_data": null,
-                        "changed_at": "2022-04-04T00:00:00.000Z",
-                        "remote_deleted_at": null
-                      }
-                    }
-                  }
                 }
               }
             }
@@ -7270,7 +7330,7 @@
             }
           }
         },
-        "description": "Create a new candidate and application for the specified job.\n\nRequires the permission \"Create and manage candidates and applications\".\n\n\n```json\n{\n  \"candidate\": {\n    \"first_name\": \"Frank\",\n    \"last_name\": \"Doe\",\n    \"company\": \"Acme Inc.\",\n    \"title\": \"Head of Integrations\",\n    \"email_address\": \"frank.doe@example.com\",\n    \"phone_number\": \"+1-541-754-3010\"\n  },\n  \"application\": {\n    \"job_id\": \"BDpgnpZ148nrGh4mYHNxJBgx\",\n    \"stage_id\": \"8x3YKRDcuRnwShdh96ShBNn1\"\n  },\n  \"attachments\": [\n    {\n      \"name\": \"Frank Doe CV.txt\",\n      \"data\": \"SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=\",\n      \"type\": \"CV\",\n      \"content_type\": \"text/plain\"\n    }\n  ]\n}\n```",
+        "description": "Create a new candidate and application for the specified job. The first CV in the attachments will be treated as the resume of the candidate when the tool allows previewing a resume.\n\nRequires the permission \"Create and manage candidates and applications\".\n\n\n```json\n{\n  \"candidate\": {\n    \"first_name\": \"Frank\",\n    \"last_name\": \"Doe\",\n    \"company\": \"Acme Inc.\",\n    \"title\": \"Head of Integrations\",\n    \"email_address\": \"frank.doe@example.com\",\n    \"phone_number\": \"+1-541-754-3010\"\n  },\n  \"application\": {\n    \"job_id\": \"BDpgnpZ148nrGh4mYHNxJBgx\",\n    \"stage_id\": \"8x3YKRDcuRnwShdh96ShBNn1\"\n  },\n  \"attachments\": [\n    {\n      \"name\": \"Frank Doe CV.txt\",\n      \"data\": \"SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=\",\n      \"type\": \"CV\",\n      \"content_type\": \"text/plain\"\n    }\n  ]\n}\n```",
         "summary": "Create candidate",
         "requestBody": {
           "content": {
@@ -7438,8 +7498,7 @@
                     "status": { "type": "string", "enum": ["success"] },
                     "data": {
                       "type": "object",
-                      "properties": {},
-                      "required": []
+                      "properties": {}
                     }
                   },
                   "required": ["status", "data"]
@@ -7508,6 +7567,139 @@
         "tags": ["Unified ATS API"]
       }
     },
+    "/ats/candidates/{candidate_id}/attachments": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "POST /ats/candidates/:candidate_id/attachments Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "enum": ["success"] },
+                    "data": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  },
+                  "required": ["status", "data"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "POST /ats/candidates/:candidate_id/attachments Error response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "enum": ["error"] },
+                    "error": {
+                      "type": "object",
+                      "properties": { "message": { "type": "string" } },
+                      "required": ["message"]
+                    }
+                  },
+                  "required": ["status", "error"]
+                },
+                "examples": {
+                  "example1": {
+                    "value": {
+                      "status": "error",
+                      "error": { "message": "Sample error message" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "description": "Uploads an attachment file for the specified candidate.\n\nRequires the permission \"Create and manage candidates and applications\".\n\n\n```json\n{\n  \"candidate_id\": \"GRKdd9dibYKKCrmGRSMJf3wu\",\n  \"attachment\": {\n    \"name\": \"Frank Doe CV.txt\",\n    \"data\": \"SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=\",\n    \"type\": \"CV\",\n    \"content_type\": \"text/plain\"\n  }\n}\n```",
+        "summary": "Add attachment to candidate",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "X-Integration-Id",
+            "schema": { "type": "string" },
+            "description": "ID of the integration you want to interact with.",
+            "example": "join:HWUTwvyx2wLoSUHphiWVrp28"
+          },
+          {
+            "name": "candidate_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "description": "POST /ats/candidates/:candidate_id/attachments parameter",
+              "type": "string"
+            },
+            "examples": { "example1": { "value": "GRKdd9dibYKKCrmGRSMJf3wu" } }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "POST /ats/candidates/:candidate_id/attachments request body",
+                "allOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "attachment": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "string",
+                            "description": "Base64-encoded file. Please note that some systems have maximum file sizes."
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "Name of the file you want to upload."
+                          },
+                          "content_type": {
+                            "type": "string",
+                            "pattern": "/^[\\w.-]+\\/[\\w.-]+$/",
+                            "description": "Content/MIME type of the file (e.g., `application/pdf`)."
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": ["CV", "COVER_LETTER", "OTHER"]
+                          }
+                        },
+                        "required": ["data", "name", "content_type", "type"]
+                      }
+                    },
+                    "required": ["attachment"],
+                    "example": {
+                      "attachment": {
+                        "name": "Frank Doe CV.txt",
+                        "data": "SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=",
+                        "type": "CV",
+                        "content_type": "text/plain"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "example1": {
+                  "value": {
+                    "attachment": {
+                      "name": "Frank Doe CV.txt",
+                      "data": "SGkgdGhlcmUsIEtvbWJvIGlzIGN1cnJlbnRseSBoaXJpbmcgZW5naW5lZXJzIHRoYXQgbG92ZSB0byB3b3JrIG9uIGRldmVsb3BlciBwcm9kdWN0cy4=",
+                      "type": "CV",
+                      "content_type": "text/plain"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "tags": ["Unified ATS API"]
+      }
+    },
     "/ats/candidates/{candidate_id}/result-links": {
       "post": {
         "responses": {
@@ -7521,8 +7713,7 @@
                     "status": { "type": "string", "enum": ["success"] },
                     "data": {
                       "type": "object",
-                      "properties": {},
-                      "required": []
+                      "properties": {}
                     }
                   },
                   "required": ["status", "data"]
@@ -7633,8 +7824,7 @@
                     "status": { "type": "string", "enum": ["success"] },
                     "data": {
                       "type": "object",
-                      "properties": {},
-                      "required": []
+                      "properties": {}
                     }
                   },
                   "required": ["status", "data"]
@@ -7736,8 +7926,7 @@
                     "status": { "type": "string", "enum": ["success"] },
                     "data": {
                       "type": "object",
-                      "properties": {},
-                      "required": []
+                      "properties": {}
                     }
                   },
                   "required": ["status", "data"]
@@ -8428,6 +8617,10 @@
                                     "type": "string",
                                     "description": "The public job posting URL of the ATS itself. This can be used by external job boards to redirect applicants."
                                   },
+                                  "experience_level": {
+                                    "nullable": true,
+                                    "type": "string"
+                                  },
                                   "salary_amount": {
                                     "nullable": true,
                                     "type": "number",
@@ -8519,8 +8712,7 @@
                                         "type": "string",
                                         "default": null
                                       }
-                                    },
-                                    "required": []
+                                    }
                                   },
                                   "opened_at": {
                                     "nullable": true,
@@ -8601,6 +8793,7 @@
                                   "category",
                                   "department",
                                   "post_url",
+                                  "experience_level",
                                   "salary_amount",
                                   "salary_amount_from",
                                   "salary_amount_to",
@@ -8629,6 +8822,7 @@
                                   "category": "Technical Job",
                                   "department": "Engineering",
                                   "post_url": "https://jobs.example.com/post/159829112",
+                                  "experience_level": "Mid-Senior",
                                   "salary_amount": 4200,
                                   "salary_amount_from": null,
                                   "salary_amount_to": null,
@@ -8698,7 +8892,6 @@
                                               "default": null
                                             }
                                           },
-                                          "required": [],
                                           "example": { "index": 0 }
                                         }
                                       ]
@@ -8728,6 +8921,7 @@
                             "category": "Technical Job",
                             "department": "Engineering",
                             "post_url": "https://jobs.example.com/post/159829112",
+                            "experience_level": "Mid-Senior",
                             "salary_amount": 4200,
                             "salary_amount_from": null,
                             "salary_amount_to": null,
@@ -8785,6 +8979,7 @@
                             "category": "Technical Job",
                             "department": "Engineering",
                             "post_url": "https://jobs.example.com/post/159829112",
+                            "experience_level": "Mid-Senior",
                             "salary_amount": 4200,
                             "salary_amount_from": null,
                             "salary_amount_to": null,
@@ -8884,7 +9079,7 @@
             }
           }
         },
-        "description": "Retrieve all jobs.\n\n```json\n{\n  \"status\": \"success\",\n  \"data\": {\n    \"next\": \"eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=\",\n    \"results\": [\n      {\n        \"id\": \"26vafvWSRmbhNcxJYqjCzuJg\",\n        \"remote_id\": \"32\",\n        \"name\": \"Backend Engineer\",\n        \"description\": \"<p>Kombo is hiring engineers! If you are reading this and you are located in Berlin, Germany, feel free to contact us about this position.</p>\",\n        \"confidential\": false,\n        \"weekly_hours\": 37,\n        \"employment_type\": \"FULL_TIME\",\n        \"status\": \"OPEN\",\n        \"visibility\": \"PUBLIC\",\n        \"category\": \"Technical Job\",\n        \"department\": \"Engineering\",\n        \"post_url\": \"https://jobs.example.com/post/159829112\",\n        \"salary_amount\": 4200,\n        \"salary_amount_from\": null,\n        \"salary_amount_to\": null,\n        \"salary_currency\": \"EUR\",\n        \"salary_period\": \"MONTH\",\n        \"location\": {\n          \"city\": \"Berlin\",\n          \"country\": \"de\",\n          \"raw\": \"Berlin, Germany\",\n          \"state\": \"Berlin\",\n          \"street_1\": \"Lohmühlenstraße 65\",\n          \"street_2\": null,\n          \"zip_code\": \"12435\"\n        },\n        \"opened_at\": \"2022-08-07T14:01:29.196Z\",\n        \"closed_at\": null,\n        \"remote_created_at\": \"2022-08-07T14:01:29.196Z\",\n        \"remote_updated_at\": \"2022-08-07T14:01:29.196Z\",\n        \"contact_id\": \"DGazmmpGwg8U75Rd9DNWzWMo\",\n        \"changed_at\": \"2022-08-07T14:01:29.196Z\",\n        \"remote_deleted_at\": null,\n        \"stages\": [\n          {\n            \"id\": \"26vafvWSRmbhNcxJYqjCzuJg\",\n            \"remote_id\": \"32\",\n            \"name\": \"Initial Screening\",\n            \"index\": 0\n          }\n        ]\n      }\n    ]\n  }\n}\n```\n\n> ​💡 Scroll down and click on \"200\" to view the detailed response schema.\n\n_If the first sync did not finish yet, a `503` status code will be returned to ensure you don't get incomplete data. This allows you to pull until the data is complete (we recommend you to depend on our webhooks though)._",
+        "description": "Retrieve all jobs.\n\n```json\n{\n  \"status\": \"success\",\n  \"data\": {\n    \"next\": \"eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=\",\n    \"results\": [\n      {\n        \"id\": \"26vafvWSRmbhNcxJYqjCzuJg\",\n        \"remote_id\": \"32\",\n        \"name\": \"Backend Engineer\",\n        \"description\": \"<p>Kombo is hiring engineers! If you are reading this and you are located in Berlin, Germany, feel free to contact us about this position.</p>\",\n        \"confidential\": false,\n        \"weekly_hours\": 37,\n        \"employment_type\": \"FULL_TIME\",\n        \"status\": \"OPEN\",\n        \"visibility\": \"PUBLIC\",\n        \"category\": \"Technical Job\",\n        \"department\": \"Engineering\",\n        \"post_url\": \"https://jobs.example.com/post/159829112\",\n        \"experience_level\": \"Mid-Senior\",\n        \"salary_amount\": 4200,\n        \"salary_amount_from\": null,\n        \"salary_amount_to\": null,\n        \"salary_currency\": \"EUR\",\n        \"salary_period\": \"MONTH\",\n        \"location\": {\n          \"city\": \"Berlin\",\n          \"country\": \"de\",\n          \"raw\": \"Berlin, Germany\",\n          \"state\": \"Berlin\",\n          \"street_1\": \"Lohmühlenstraße 65\",\n          \"street_2\": null,\n          \"zip_code\": \"12435\"\n        },\n        \"opened_at\": \"2022-08-07T14:01:29.196Z\",\n        \"closed_at\": null,\n        \"remote_created_at\": \"2022-08-07T14:01:29.196Z\",\n        \"remote_updated_at\": \"2022-08-07T14:01:29.196Z\",\n        \"contact_id\": \"DGazmmpGwg8U75Rd9DNWzWMo\",\n        \"changed_at\": \"2022-08-07T14:01:29.196Z\",\n        \"remote_deleted_at\": null,\n        \"stages\": [\n          {\n            \"id\": \"26vafvWSRmbhNcxJYqjCzuJg\",\n            \"remote_id\": \"32\",\n            \"name\": \"Initial Screening\",\n            \"index\": 0\n          }\n        ]\n      }\n    ]\n  }\n}\n```\n\n> ​💡 Scroll down and click on \"200\" to view the detailed response schema.\n\n_If the first sync did not finish yet, a `503` status code will be returned to ensure you don't get incomplete data. This allows you to pull until the data is complete (we recommend you to depend on our webhooks though)._",
         "summary": "Get jobs",
         "parameters": [
           {
@@ -8949,274 +9144,6 @@
             "schema": {
               "description": "Filter by the `post_url` field. Can be used to find a job based on its public posting URL.",
               "type": "string"
-            }
-          }
-        ],
-        "tags": ["Unified ATS API"]
-      }
-    },
-    "/ats/interviews": {
-      "get": {
-        "responses": {
-          "200": {
-            "description": "GET /ats/interviews Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "string", "enum": ["success"] },
-                    "data": {
-                      "type": "object",
-                      "properties": {
-                        "next": { "nullable": true, "type": "string" },
-                        "results": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": { "type": "string" },
-                              "remote_id": { "type": "string" },
-                              "start_at": {
-                                "nullable": true,
-                                "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
-                                "type": "string",
-                                "format": "date-time",
-                                "externalDocs": {
-                                  "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
-                                }
-                              },
-                              "end_at": {
-                                "nullable": true,
-                                "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
-                                "type": "string",
-                                "format": "date-time",
-                                "externalDocs": {
-                                  "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
-                                }
-                              },
-                              "application_id": {
-                                "nullable": true,
-                                "type": "string"
-                              },
-                              "application_stage_id": {
-                                "nullable": true,
-                                "type": "string"
-                              },
-                              "remote_data": {
-                                "nullable": true,
-                                "type": "object",
-                                "additionalProperties": {
-                                  "format": "any",
-                                  "nullable": true
-                                }
-                              },
-                              "changed_at": {
-                                "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
-                                "type": "string",
-                                "format": "date-time",
-                                "externalDocs": {
-                                  "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
-                                }
-                              },
-                              "remote_deleted_at": {
-                                "nullable": true,
-                                "description": "YYYY-MM-DDTHH:mm:ss.sssZ",
-                                "type": "string",
-                                "format": "date-time",
-                                "externalDocs": {
-                                  "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
-                                }
-                              }
-                            },
-                            "required": [
-                              "id",
-                              "remote_id",
-                              "start_at",
-                              "end_at",
-                              "application_id",
-                              "application_stage_id",
-                              "remote_data",
-                              "changed_at",
-                              "remote_deleted_at"
-                            ],
-                            "example": {
-                              "id": "26vafvWSRmbhNcxJYqjCzuJg",
-                              "remote_id": "32",
-                              "start_at": "2022-09-05T13:50:00.000Z",
-                              "end_at": "2022-09-05T14:35:00.000Z",
-                              "application_id": "H3UdbZR9ghwYJWW21bNQYgh5",
-                              "application_stage_id": "DdWZGKupm9iLAhaG7ysXiTLD",
-                              "remote_data": null,
-                              "changed_at": "2022-08-07T14:01:29.196Z",
-                              "remote_deleted_at": null
-                            }
-                          }
-                        }
-                      },
-                      "required": ["next", "results"],
-                      "example": {
-                        "next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=",
-                        "results": [
-                          {
-                            "id": "26vafvWSRmbhNcxJYqjCzuJg",
-                            "remote_id": "32",
-                            "start_at": "2022-09-05T13:50:00.000Z",
-                            "end_at": "2022-09-05T14:35:00.000Z",
-                            "application_id": "H3UdbZR9ghwYJWW21bNQYgh5",
-                            "application_stage_id": "DdWZGKupm9iLAhaG7ysXiTLD",
-                            "remote_data": null,
-                            "changed_at": "2022-08-07T14:01:29.196Z",
-                            "remote_deleted_at": null
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  "required": ["status", "data"]
-                },
-                "examples": {
-                  "example1": {
-                    "value": {
-                      "status": "success",
-                      "data": {
-                        "next": "eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=",
-                        "results": [
-                          {
-                            "id": "26vafvWSRmbhNcxJYqjCzuJg",
-                            "remote_id": "32",
-                            "start_at": "2022-09-05T13:50:00.000Z",
-                            "end_at": "2022-09-05T14:35:00.000Z",
-                            "application_id": "H3UdbZR9ghwYJWW21bNQYgh5",
-                            "application_stage_id": "DdWZGKupm9iLAhaG7ysXiTLD",
-                            "remote_data": null,
-                            "changed_at": "2022-08-07T14:01:29.196Z",
-                            "remote_deleted_at": null
-                          }
-                        ]
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "GET /ats/interviews Error response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "string", "enum": ["error"] },
-                    "error": {
-                      "type": "object",
-                      "properties": { "message": { "type": "string" } },
-                      "required": ["message"]
-                    }
-                  },
-                  "required": ["status", "error"]
-                },
-                "examples": {
-                  "example1": {
-                    "value": {
-                      "status": "error",
-                      "error": { "message": "Sample error message" }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "503": {
-            "description": "Returned when no sync has finished successfully yet",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": { "type": "string", "enum": ["error"] },
-                    "error": {
-                      "type": "object",
-                      "properties": { "message": { "type": "string" } },
-                      "required": ["message"],
-                      "example": {
-                        "message": "The first sync of this integration didn't finish yet! You can keep polling this until you get a successful response or react to our webhooks."
-                      }
-                    }
-                  },
-                  "required": ["status", "error"]
-                },
-                "examples": {
-                  "example1": {
-                    "value": {
-                      "status": "error",
-                      "error": {
-                        "message": "The first sync of this integration didn't finish yet! You can keep polling this until you get a successful response or react to our webhooks."
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "description": "Retrieve all interviews.\n\n```json\n{\n  \"status\": \"success\",\n  \"data\": {\n    \"next\": \"eyJwYWdlIjoxMiwibm90ZSI6InRoaXMgaXMganVzdCBhbiBleGFtcGxlIGFuZCBub3QgcmVwcmVzZW50YXRpdmUgZm9yIGEgcmVhbCBjdXJzb3IhIn0=\",\n    \"results\": [\n      {\n        \"id\": \"26vafvWSRmbhNcxJYqjCzuJg\",\n        \"remote_id\": \"32\",\n        \"start_at\": \"2022-09-05T13:50:00.000Z\",\n        \"end_at\": \"2022-09-05T14:35:00.000Z\",\n        \"application_id\": \"H3UdbZR9ghwYJWW21bNQYgh5\",\n        \"application_stage_id\": \"DdWZGKupm9iLAhaG7ysXiTLD\",\n        \"changed_at\": \"2022-08-07T14:01:29.196Z\",\n        \"remote_deleted_at\": null\n      }\n    ]\n  }\n}\n```\n\n> ​💡 Scroll down and click on \"200\" to view the detailed response schema.\n\n_If the first sync did not finish yet, a `503` status code will be returned to ensure you don't get incomplete data. This allows you to pull until the data is complete (we recommend you to depend on our webhooks though)._",
-        "summary": "Get interviews",
-        "parameters": [
-          {
-            "in": "header",
-            "name": "X-Integration-Id",
-            "schema": { "type": "string" },
-            "description": "ID of the integration you want to interact with.",
-            "example": "join:HWUTwvyx2wLoSUHphiWVrp28"
-          },
-          {
-            "name": "cursor",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "description": "The cursor retrieved from the previous request when paginating",
-              "type": "string"
-            }
-          },
-          {
-            "name": "page_size",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "description": "The number of results to return per page",
-              "type": "integer",
-              "format": "int64",
-              "minimum": 1,
-              "exclusiveMinimum": false,
-              "maximum": 100,
-              "exclusiveMaximum": false
-            }
-          },
-          {
-            "name": "updated_after",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "description": "Filter the entries based on the modification date. If you want to track entry deletion, also set the `include_deleted=true` query parameter, because otherwise, deleted entries will be hidden.",
-              "type": "string",
-              "format": "date-time",
-              "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?)?Z?$",
-              "externalDocs": {
-                "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString"
-              }
-            }
-          },
-          {
-            "name": "include_deleted",
-            "in": "query",
-            "required": false,
-            "schema": {
-              "description": "By default, deleted entries are not returned. Use the `include_deleted` query param to include deleted entries too.",
-              "type": "string",
-              "enum": ["true", "false"],
-              "default": "false"
             }
           }
         ],
@@ -9611,6 +9538,7 @@
                           "payfit",
                           "smartrecruiters",
                           "pinpoint",
+                          "dvinci",
                           "jazzhr"
                         ],
                         "default": null,
@@ -9758,8 +9686,7 @@
                     "status": { "type": "string", "enum": ["success"] },
                     "data": {
                       "type": "object",
-                      "properties": {},
-                      "required": []
+                      "properties": {}
                     }
                   },
                   "required": ["status", "data"]
