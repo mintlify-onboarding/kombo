@@ -5,7 +5,7 @@
     "dark": "/logo/dark.svg"
   },
   "api": {
-    "baseUrl": "https://api.kombo.dev"
+    "baseUrl": "https://api.kombo.dev/v1"
   },
   "favicon": "/favicon.svg",
   "colors": {
@@ -106,8 +106,8 @@
         {
           "group": "Kombo Connect",
           "pages": [
-            "reference/combo-connect/create-link",
-            "reference/combo-connect/activate-integration"
+            "reference/kombo-connect/create-link",
+            "reference/kombo-connect/activate-integration"
           ]
         },
         {
