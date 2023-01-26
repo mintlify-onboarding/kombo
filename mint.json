@@ -1,4 +1,5 @@
 {
+  "$schema": "https://mintlify.com/schema.json",
   "name": "Kombo",
   "logo": {
     "light": "/logo/light.svg",
@@ -9,19 +10,19 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#55B5A6",
-    "light": "#98E4D9",
-    "dark": "#36766F",
-    "anchors": { "from": "#55B5A6", "to": "#36766F" }
+    "primary": "#14b8a6",
+    "light": "#5eead4",
+    "dark": "#0f766e",
+    "anchors": { "from": "#14b8a6", "to": "#0f766e" }
   },
   "topbarCtaButton": {
     "name": "Log in",
-    "url": "https://app.kombo.dev/account/login"
+    "url": "https://app.kombo.dev"
   },
   "topbarLinks": [
     {
-      "name": "Get started",
-      "url": "https://www.kombo.dev/"
+      "name": "Book meeting",
+      "url": "https://savvycal.com/kombo/website-demo"
     }
   ],
   "anchors": [
@@ -31,9 +32,19 @@
       "url": "reference"
     },
     {
-      "name": "Contact us",
-      "icon": "envelope",
-      "url": "mailto:contact@kombo.dev"
+      "name": "Integrations",
+      "icon": "plug",
+      "url": "https://www.kombo.dev/categories/all"
+    },
+    {
+      "name": "Status",
+      "icon": "wave-pulse",
+      "url": "https://status.kombo.dev"
+    },
+    {
+      "name": "Security",
+      "icon": "shield-halved",
+      "url": "https://security.kombo.dev/"
     }
   ],
   "navigation": [

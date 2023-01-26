@@ -13,9 +13,19 @@ description: "Let's get you up and running with our API!"
 1. Log in to the [Kombo Dashboard](https://app.kombo.dev)
 2. Go to the "Integrations" page
 3. Click "New integration":
-   ![1448](/images/503d25a-Screen_Shot_2022-10-07_at_15.59.06.png "Screen Shot 2022-10-07 at 15.59.06.png")![1448](/images/503d25a-Screen_Shot_2022-10-07_at_15.59.06.png "Click to close...")
+
+<Frame>
+  ![1448](/images/503d25a-Screen_Shot_2022-10-07_at_15.59.06.png "Screen Shot
+  2022-10-07 at 15.59.06.png")
+</Frame>
+
 4. Select "Create the integration yourself":
-   ![758](/images/16769a4-Screen_Shot_2022-10-07_at_16.00.06.png "Screen Shot 2022-10-07 at 16.00.06.png")![758](/images/16769a4-Screen_Shot_2022-10-07_at_16.00.06.png "Click to close...")
+
+<Frame>
+  ![758](/images/16769a4-Screen_Shot_2022-10-07_at_16.00.06.png "Screen Shot
+  2022-10-07 at 16.00.06.png")
+</Frame>
+
 5. Work your way through the flow and enter the necessary credentials
 
 ### Your first integration ID
@@ -23,7 +33,10 @@ description: "Let's get you up and running with our API!"
 After going through the connection flow, your newly created integration will
 appear on your dashboard. It will probably look something like this:
 
-![1422](/images/d5998af-Screen_Shot_2022-10-07_at_16.14.12.png "Screen Shot 2022-10-07 at 16.14.12.png")![1422](/images/d5998af-Screen_Shot_2022-10-07_at_16.14.12.png "Click to close...")
+<Frame>
+  ![1422](/images/d5998af-Screen_Shot_2022-10-07_at_16.14.12.png "Screen Shot
+  2022-10-07 at 16.14.12.png")
+</Frame>
 
 Note the bold string at the top starting with the name of the tool you've
 connected (`factorial` in this example): that's the **integration ID**. It
@@ -46,7 +59,10 @@ Let's say we want to retrieve all the employees in Factorial (the HRIS system I
 connected for this example). To do this, I'll have to call
 [the /hris/employees endpoint](/reference/get%5Fhris-employees).
 
-![1346](/images/4fb50a4-Screen_Shot_2022-10-07_at_16.51.23.png "Screen Shot 2022-10-07 at 16.51.23.png")![1346](/images/4fb50a4-Screen_Shot_2022-10-07_at_16.51.23.png "Click to close...")
+<Frame>
+  ![1346](/images/4fb50a4-Screen_Shot_2022-10-07_at_16.51.23.png "Screen Shot
+  2022-10-07 at 16.51.23.png")
+</Frame>
 
 _The endpoint I'll be using in this example._
 
@@ -60,7 +76,10 @@ First, we have to set our **Kombo API key**, which ensures that _only you_ can
 request data from your customers' integrations. Enter it in the "Authentication"
 field in the top right:
 
-![948](/images/23f73e6-Screen_Shot_2022-10-07_at_17.03.27.png "Screen Shot 2022-10-07 at 17.03.27.png")![948](/images/23f73e6-Screen_Shot_2022-10-07_at_17.03.27.png "Click to close...")
+<Frame>
+  ![948](/images/23f73e6-Screen_Shot_2022-10-07_at_17.03.27.png "Screen Shot
+  2022-10-07 at 17.03.27.png")
+</Frame>
 
 #### Integration ID
 
@@ -69,18 +88,27 @@ have many in the future. That's why you have to specify which integration you're
 requesting data for with each request. This can be done through the
 `X-Integration-Id` header, which you can find at the bottom of the page:
 
-![1282](/images/4701a78-Screen_Shot_2022-10-07_at_17.11.19.png "Screen Shot 2022-10-07 at 17.11.19.png")![1282](/images/4701a78-Screen_Shot_2022-10-07_at_17.11.19.png "Click to close...")
+<Frame>
+  ![1282](/images/4701a78-Screen_Shot_2022-10-07_at_17.11.19.png "Screen Shot
+  2022-10-07 at 17.11.19.png")
+</Frame>
 
 As you can see, I've already entered the integration of the Factorial
 integration I've created above. Now everything is ready to send the request:
 Scroll back up and **_Try it!_**
 
-![920](/images/cd2ab94-Screen_Shot_2022-10-07_at_17.18.43.png "Screen Shot 2022-10-07 at 17.18.43.png")![920](/images/cd2ab94-Screen_Shot_2022-10-07_at_17.18.43.png "Click to close...")
+<Frame>
+  ![920](/images/cd2ab94-Screen_Shot_2022-10-07_at_17.18.43.png "Screen Shot
+  2022-10-07 at 17.18.43.png")
+</Frame>
 
 You should now see a list of employees (or whatever the endpoint you chose
 returns), congratulations!
 
-![910](/images/08827f2-Screen_Shot_2022-10-07_at_17.23.19.png "Screen Shot 2022-10-07 at 17.23.19.png")![910](/images/08827f2-Screen_Shot_2022-10-07_at_17.23.19.png "Click to close...")
+<Frame>
+  ![910](/images/08827f2-Screen_Shot_2022-10-07_at_17.23.19.png "Screen Shot
+  2022-10-07 at 17.23.19.png")
+</Frame>
 
 ### Programmatically calling the API
 
@@ -93,7 +121,10 @@ To do this, select your programming language in the top right. You'll then be
 provided with the code you need to make the same API call you made
 interactively:
 
-![926](/images/5ea5380-Screen_Shot_2022-10-07_at_17.36.27.png "Screen Shot 2022-10-07 at 17.36.27.png")![926](/images/5ea5380-Screen_Shot_2022-10-07_at_17.36.27.png "Click to close...")
+<Frame>
+  ![926](/images/5ea5380-Screen_Shot_2022-10-07_at_17.36.27.png "Screen Shot
+  2022-10-07 at 17.36.27.png")
+</Frame>
 
 _A code snippet for Node.js (with the Axios library)._
 
