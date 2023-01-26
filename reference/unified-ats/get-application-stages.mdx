@@ -1,4 +1,13 @@
 ---
 title: "Get application stages (depreciated)"
 openapi: "GET /ats/application-stages"
+description: "Get all application stages available in the ATS."
 ---
+
+<Warning>
+  **Deprecated** This is deprecated because most ATS systems have separate sets
+  of stages for each job. We'd recommend using the `stages` property on jobs
+  instead.
+</Warning>
+
+_If the first sync did not finish yet, a `503` status code will be returned to ensure you don't get incomplete data. This allows you to pull until the data is complete (we recommend you to depend on our webhooks though)._

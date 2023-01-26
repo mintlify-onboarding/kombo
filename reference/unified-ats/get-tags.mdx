@@ -1,3 +1,6 @@
 ---
 openapi: "GET /ats/tags"
+description: "Retrieve all tags."
 ---
+
+_If the first sync did not finish yet, a `503` status code will be returned to ensure you don't get incomplete data. This allows you to pull until the data is complete (we recommend you to depend on our webhooks though)._

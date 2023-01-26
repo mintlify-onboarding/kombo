@@ -110,7 +110,6 @@
             "reference/unified-ats/get-tags",
             "reference/unified-ats/get-application-stages",
             "reference/unified-ats/get-jobs",
-            "reference/unified-ats/get-interviews",
             "reference/unified-ats/get-users"
           ]
         },
