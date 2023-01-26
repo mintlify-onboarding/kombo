@@ -1,3 +1,24 @@
 ---
 openapi: "POST /passthrough/{tool}/{api}"
+description: "Pass in details about the request you want to make to the integration's API and we'll forward it for you."
 ---
+
+At Kombo we put a lot of work into making sure that our unified API covers all our customers' use cases and that they never have to think about integration-specific logic again. There are cases, however, where our customers want to build features that are very integration-specfic. That's where this endpoint comes in.
+
+Pass in details about the request you want to make to the integration's API and we'll forward it for you. We'll also take care of setting the right base URL and authenticating your requests.
+
+To get started, please pick the relevant API (some tools provide multiple to due different base URLs or authentication schemes) from the table below and pass in the `{tool}/{api}` identifier as part of the path.
+
+| Integration | `{tool}/{api}`        | Description                                                                                                                                                                                                                               |
+| ----------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Personio    | `personio/personnel`  | Personio's [Personnel Data API](https://developer.personio.de/reference/get_company-employees). We automatically authenticate all requests using the client ID and secret and use `https://api.personio.de/v1` as the base URL.           |
+| Personio    | `personio/recruiting` | Personio's [Recruiting API](https://developer.personio.de/reference/get_company-employees). We automatically authenticate all requests using the Recruiting access token and use `https://api.personio.de/v1/recruiting` as the base URL. |
+| Personio    | `personio/jobboard`   | API endpoints exposed on Personio's public job board pages ([currently just the XML feed](https://developer.personio.de/reference/get_xml)). We automatically use the right `https://{company}.jobs.personio.de` base URL.                |
+| Recruitee   | `recruitee/default`   | The [Recruitee API](https://api.recruitee.com/docs/index.html). We automatically authenticate all requests and use `https://api.recruitee.com` as the base URL.                                                                           |
+
+<Note>
+  Please note that the pass-through API endpoints are only meant for edge cases.
+  That's why we only expose them for new integrations after understanding a
+  concrete customer use case. If you have such a use case in mind, please reach
+  out to Kombo.
+</Note>

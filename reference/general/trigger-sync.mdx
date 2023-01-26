@@ -1,3 +1,11 @@
 ---
 openapi: "POST /force-sync"
+description: "Trigger a sync for a specific integration."
 ---
+
+<Note>
+  Please note that it is **not** necessary nor recommended to call this endpoint
+  periodically on your side. Kombo already performs period syncs for you and you
+  should only trigger syncs yourself in special cases (like when a user clicks
+  on a "Sync" button in your app).
+</Note>

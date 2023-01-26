@@ -1,3 +1,12 @@
 ---
 openapi: "GET /hris/employees"
+description: "Retrieve all employees."
 ---
+
+_Not interested in most fields? You can use our [our Scopes feature](https://docs.kombo.dev/docs/scopes) to customize what data points will synced._
+
+<Note>
+  If the first sync did not finish yet, a `503` status code will be returned to
+  ensure you don't get incomplete data. This allows you to pull until the data
+  is complete (we recommend you to depend on our webhooks though).
+</Note>
