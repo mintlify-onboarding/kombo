@@ -6,7 +6,10 @@
     "dark": "/logo/dark.svg"
   },
   "api": {
-    "baseUrl": "https://api.kombo.dev/v1"
+    "baseUrl": "https://api.kombo.dev/v1",
+    "auth": {
+      "method": "bearer"
+    }
   },
   "favicon": "/favicon.svg",
   "colors": {
